@@ -1,13 +1,15 @@
-import random 
+from random import choice
+
+def roll():
+    lst = [1,2,3,4,5,6]
+    print((choice(lst),choice(lst)))
 
 while True:
-  choice = input('Roll the dice? (y/n): ').lower()
-  if choice == 'y':
-      die1 = random.randint(1, 6)
-      die2 = random.randint(1, 6)
-      print(f'({die1}, {die2})')
-  elif choice == 'n':
-      print('Thanks for playing!')
-      break
-  else:
-      print('Invalid choice!')
+    inpt = input('Roll dice y/n> ')
+    if inpt == 'n':
+        print('Thank you for playing')
+        exit()
+    elif inpt == 'y':
+        roll()
+    else:
+        print('Invalid choice!')
