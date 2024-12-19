@@ -5,10 +5,10 @@ def roll():
     print((choice(lst),choice(lst)))
 
 while True:
-    inpt = input('Roll dice y/n> ')
+    inpt = input('Roll dice y/n> ').lower()
     if inpt == 'n':
         print('Thank you for playing')
-        exit()
+        break
     elif inpt == 'y':
         roll()
     else:
