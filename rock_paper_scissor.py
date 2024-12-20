@@ -1,7 +1,10 @@
 import random
 
 cpu_choices = ['Rock', 'Paper', 'Scissors']
-game = [{('rock', 'paper'): 'paper'}, {('rock', 'scissors'): "rock"}, {('scissors', 'paper'): 'scissors'}]
+game = [{('Rock', 'Paper'): 'Paper'}, {('Paper', 'Rock'): 'Paper'}, 
+        {('Rock', 'Scissors'): "Rock"}, {('Scissors', 'Rock'): "Rock"}, 
+        {('Scissors', 'Paper'): 'Scissors'}, {('Paper', 'Scissors'): 'Scissors'}
+        ]
 
 while True:
 
@@ -19,7 +22,17 @@ while True:
     else:
         print(f'you chose {player_choice}')
         print(f"cpu chose {cpu_choice}")
-        
+        for dct in game:
+            if (player_choice, cpu_choice) in dct:
+                if player_choice == dct[(player_choice, cpu_choice)]:
+                    print("Player wins!")
+                    break
+                elif cpu_choice == dct[(player_choice, cpu_choice)]:
+                    print("Computer wins!")
+                    break
+            elif player_choice == cpu_choice:
+                print('Draw!')
+                break
         while True:
           end_game = input('want to continue?: ')
           
